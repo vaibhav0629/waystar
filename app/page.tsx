@@ -1,69 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import Button from "@/components/Button";
+import ServiceCard from "@/components/ServiceCard";
+import { services } from "@/lib/services";
+import { schoolSubjects, codingSubjects } from "@/lib/subjects";
+import { site } from "@/lib/site";
 
-export default function Home() {
+export default function HomePage() {
+  const allSubjects = [...schoolSubjects, ...codingSubjects];
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="container py-5">
+        <div className="row align-items-center g-5">
+          <div className="col-md-7">
+            <h1 className="mb-3">{site.tagline}</h1>
+            <p className="lead text-body-secondary">
+              {site.name} offers tutoring in Math, Physics, Chemistry, English, and
+              Programming. Study online from anywhere, or in person in {site.area}.
+            </p>
+            <div className="d-flex flex-wrap gap-2 mt-4">
+              <Button href="/services">See services</Button>
+              <Button href="/testimonials" variant="outline-primary">See student results</Button>
+            </div>
+          </div>
+          <div className="col-md-5">
+            <div className="paper" aria-label="Example of a worked problem">
+              <p className="paper-title">Pressure at 3 m depth</p>
+              <p>Given: ρ = 1000 kg/m³, g = 10 m/s², h = 3 m</p>
+              <p>P = ρ · g · h</p>
+              <p>P = 1000 · 10 · 3</p>
+              <p><b>P = 30.000 Pa</b></p>
+            </div>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="container py-4">
+        <h2 className="mb-3">Three ways to learn</h2>
+        <div className="row g-3">
+          {services.map((s) => (
+            <div className="col-md-4" key={s.slug}>
+              <ServiceCard service={s} />
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="container py-5">
+        <h2 className="mb-3">Subjects</h2>
+        <div className="d-flex flex-wrap gap-2 mb-3">
+          {allSubjects.map((s) => (
+            <span className="badge rounded-pill text-bg-light border fs-6 fw-normal" key={s.name}>{s.name}</span>
+          ))}
+        </div>
+        <Link href="/subjects">What each subject covers</Link>
+      </section>
+    </>
   );
 }
