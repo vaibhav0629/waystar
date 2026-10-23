@@ -11,9 +11,7 @@ export type Service = {
 
 export type Subject = { name: string; note: string };
 
-export type Testimonial = {
+export type Result = {
   id: string;
-  subject: string;
-  caption: string;
   image: string;
 };

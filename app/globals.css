@@ -59,3 +59,6 @@ p { max-width: 65ch; }
 
 .app-footer { background: #fff; color: #5a6486; }
 .app-footer a { color: #5a6486; }
+.results-carousel { max-width: 560px; background: var(--ink); border-radius: 10px; overflow: hidden; }
+.results-carousel .carousel-inner { padding-bottom: 2.8rem; }
+.results-carousel .carousel-item img { width: 100%; height: 65vh; max-height: 620px; object-fit: contain; }

@@ -2,8 +2,8 @@ import type { Menu } from "./types";
 
 export const site = {
   name: "Waystar Edu",
-  tagline: "Today's effort brings tomorrow's success",
-  area: "Jakarta Barat",
+  tagline: "Knowledge is the only thing that can't be taken away from you",
+  area: "West Jakarta",
   whatsapp: "6285810299707",
   instagram: "waystar_edu",
   threads: "waystar_edu",
@@ -22,7 +22,7 @@ export const menus: Menu[] = [
   { href: "/", label: "Home" },
   { href: "/subjects", label: "Subjects" },
   { href: "/services", label: "Services" },
-  { href: "/testimonials", label: "Testimonials" },
+  { href: "/results", label: "Results" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
