@@ -19,7 +19,7 @@ export default function HomePage() {
             </p>
             <div className="d-flex flex-wrap gap-2 mt-4">
               <Button href="/services">See services</Button>
-              <Button href="/testimonials" variant="outline-primary">See student results</Button>
+              <Button href="/results" variant="outline-primary">See student results</Button>
             </div>
           </div>
           <div className="col-md-5">
